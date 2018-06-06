@@ -1,0 +1,35 @@
+# OSH / orchestrate script for Job Job_2 compiled at 05:12:37 06 JUN 2018
+#
+# OSH / orchestrate script for Job Job_2 compiled at 05:12:36 06 Jun 2018
+#################################################################
+#### STAGE: Folder_1
+## Operator
+import
+## Operator options
+-schema record
+  {final_delim=end, delim=',', quote=double}
+(
+ FileName:string[max=255];
+ Record:string[max=999999];
+)
+-file  'd:\\tmp\\test.txt'
+-rejects continue
+-reportProgress yes
+## General options
+[ident('Folder_1'); jobmon_ident('Folder_1')]
+## Outputs
+0> [] 'Folder_1:Link_3.v'
+;
+#################################################################
+#### STAGE: Peek_2
+## Operator
+peek
+## Operator options
+-nrecs 10
+-name
+## General options
+[ident('Peek_2'); jobmon_ident('Peek_2')]
+## Inputs
+0< [] 'Folder_1:Link_3.v'
+;
+# End of OSH code
