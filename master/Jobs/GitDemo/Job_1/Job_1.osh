@@ -1,0 +1,49 @@
+# OSH / orchestrate script for Job Job_1 compiled at 07:01:59 08 JUN 2018
+#
+# OSH / orchestrate script for Job Job_1 compiled at 07:01:58 08 Jun 2018
+#################################################################
+#### STAGE: Folder_1
+## Operator
+import
+## Operator options
+-schema record
+  {final_delim=end, delim=',', quote=double}
+(
+ FileName:string[max=255];
+ Record:string[max=99];
+)
+-file  'd:\\tmp\\test.txt'
+-rejects continue
+-reportProgress yes
+## General options
+[ident('Folder_1'); jobmon_ident('Folder_1')]
+## Outputs
+0> [] 'Folder_1:Link_6.v'
+;
+#################################################################
+#### STAGE: CTrans_5
+## Operator
+transform
+## Operator options
+-flag run
+-name 'V0S5_Job_1_Transformer'
+## General options
+[ident('CTrans_5'); jobmon_ident('CTrans_5')]
+## Inputs
+0< [] 'Folder_1:Link_6.v'
+## Outputs
+0> [] 'CTrans_5:Link_7.v'
+;
+#################################################################
+#### STAGE: Peek_2
+## Operator
+peek
+## Operator options
+-nrecs 10
+-name
+## General options
+[ident('Peek_2'); jobmon_ident('Peek_2')]
+## Inputs
+0< [] 'CTrans_5:Link_7.v'
+;
+# End of OSH code
