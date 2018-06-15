@@ -1,5 +1,5 @@
 #!/bin/sh
-# Shell script for Datastage to execute an osh script, generated at 2018-06-08 06:52:12
+# Shell script for Datastage to execute an osh script, generated at 2018-06-15 06:20:49
 # Compiler runtime stamp 11.7///60/C
 #
 # Parameters:
